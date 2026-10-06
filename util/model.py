@@ -325,6 +325,9 @@ def make_model(
                 encoder_params=encoder_params,
             )
 
+            if need_wrapper:
+                model = Wrapper(model)
+
         elif arch == 'PAN':
             model = torchseg.PAN(
                 encoder_name=encoder,
@@ -334,6 +337,9 @@ def make_model(
                 encoder_depth=encoder_depth,
                 encoder_params=encoder_params,
             )
+
+            if need_wrapper:
+                model = Wrapper(model)
 
         elif arch == 'DeepLabV3':
             model = torchseg.DeepLabV3(
@@ -345,6 +351,9 @@ def make_model(
                 encoder_params=encoder_params,
             )
 
+            if need_wrapper:
+                model = Wrapper(model)
+
         elif arch == 'DeepLabV3+':
             model = torchseg.DeepLabV3Plus(
                 encoder_name=encoder,
@@ -354,6 +363,9 @@ def make_model(
                 encoder_depth=encoder_depth,
                 encoder_params=encoder_params,
             )
+
+            if need_wrapper:
+                model = Wrapper(model)
 
         else:
             print("Architecture not implemented")
